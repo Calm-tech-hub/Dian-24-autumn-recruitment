@@ -50,7 +50,8 @@
 - 通过学习对RNN模型的理解：
 
 
-  ![cb0863e33a1c8eed478329ef9f4d393](https://github.com/user-attachments/assets/c048b3a8-b7df-48ca-81c4-5153d2d4fccd)
+  <img width="503" alt="b3cf076c47e35c8b046e83d2b4b7176" src="https://github.com/user-attachments/assets/d7574b9a-dd83-4d03-9250-5cfa6b3f23a6">
+
 
   1.应用层面：`RNN` 是一种擅长处理序列数据的神经网络，通常用于`NLP`领域
 
@@ -60,7 +61,8 @@
    
    更新：RNN 通过在每一步接收新的输入，并更新它的“记忆”，来处理序列。每个时间步骤的输出不仅依赖于当前的输入，还依赖于之前的状态。
 
-   ![9153fcd9eed568bbbd01c79ee9ab5c5](https://github.com/user-attachments/assets/b2dc1945-7877-4133-8353-20fc57f75cc2)
+   <img width="638" alt="80bbf319b24b6e63e79d3a3b0fe6f59" src="https://github.com/user-attachments/assets/038e78ca-3a87-480e-8889-15d263480fed">
+
 
    如上图所示，该图展示出`RNN`网络的隐藏层工作原理
 
@@ -75,11 +77,13 @@
    其中`fai`函数采用的是激活函数`tanh`，原因主要是可以缓解梯度消失问题， ⁡`tanh` 函数的导数范围在 0 到 1 之间，相对平滑这有助于梯度下降算法在训练过程中更有效地更新权重。尽管梯度在输入值很大或很小时可能会接近于 0（导致梯度消 
    失）但是相较于某些其他函数，`tanh` 的梯度消失问题较为缓解，关于这个问题后续还会采用梯度裁剪法继续实现
 
-   ![222371c8f77e1060b876906561add1f](https://github.com/user-attachments/assets/f4bf27f4-02c2-4538-b653-b6d25b6bffa3)
+   <img width="733" alt="d561d6413ec63e02ca7ac8b52087c05" src="https://github.com/user-attachments/assets/5c8510b1-1621-4115-8322-3ab8948ea5bc">
+
 
    上图是`RNN`的计算图
 
-   ![ab3d4124b492f871fb9e950e02198de](https://github.com/user-attachments/assets/f43ab647-4888-4481-b1ce-8452169f3ced)
+   <img width="590" alt="950a12ad0ff749841a19d1d1327d099" src="https://github.com/user-attachments/assets/f842a94e-bd83-4c6a-b5bd-ccaa4facb002">
+
 
    上图是根据计算图进行反向传播，得出的损失函数`L`对于`W_hh`和`W_hx`的偏导，因为后续的`updater`优化器采用的是`torch.optim.SGD`，所以求出损失函数对于待学习超参数的梯度十分重要。
 
@@ -104,22 +108,49 @@
    6.进行训练前后对比：通过测试集的分类结果进行训练前后的比对，表现出训练的高效性
 
 ## 2.2 第二题的实现
-- 通过学习两种位置编码，通过数学推导出两种位置编码，特别是`RoPE`编码的实现过程，如下图：
+- 通过学习两种位置编码，首先对这两种编码在transformer中的作用进行一个整体的理解，通过一个简单的没有位置编码的transformer架构的NLP模型进行分析，发现其中两个字交换位置并没有造成最终输出的改变，比如‘我爱你’和‘你爱我’是两种截然不同的意思，但由于没有对其在整体中的位置进行描述，故而出现这种错误，然后通过数学推导理解这两种位置编码，特别是`RoPE`编码的实现过程，如下图：
   
-  ![678c4b0a90808eeaf81b2a6599f1282](https://github.com/user-attachments/assets/05f025f0-c581-452f-8457-c81d6f86806f)
+  ![678c4b0a90808eeaf81b2a6599f1282](https://github.com/user-attachments/assets/65c37f80-9158-408c-add8-57b6f275aa0e)
 
+  
   1.绝对位置编码：顾名思义，在绝对位置编码的公式定义中与自身在所给数据中有关的变量有两个：一个是`pos`,一个是`i`,其中`pos`指的是对应的第几号样本，`i`反映的是该变量在该样本中的第几个特征,而且在公式中并未涉及其他变量的位置，所以仅由自身在样本整体中的位置决定，故称为绝对位置编码，最终将公式的结果在附加到原来的特征信息上即可
 
   2.代码实现：通过定义一个`AbsPosEncoding`的类，在里面通过`pytorch`自带的数学函数实现上述数学公式，并用一个随机矩阵进行测试
 
   3.旋转位置编码：这个相较于绝对位置编码要复杂的多，所以先从简单的二维情况开始考虑，首先从结果出发，将其与绝对位置编码进行比较，它在结果中引入`（m-n）`的项，以及`theta`中有`i`的元素，所以里面含有绝对位置信息与相对位置信息，下面将二维扩展至多维，如下图所示：
+  
+  <img width="587" alt="dbf86f2fbd16ba8786b0060b93253e0" src="https://github.com/user-attachments/assets/92401355-d113-427d-ab5c-9a1f566e9c05">
 
-  ![14282b71a12465e440842f26e2ff64e](https://github.com/user-attachments/assets/44b4abb1-753c-46bf-aecb-c53f88786ecc)
 
   这样就与题目所提供的公式形式基本保持一致了，至此旋转编码的公式推导已经基本完成。
 
-  4.代码实现：仿照绝对位置编码的格式，先定义一个RotaryPosEncoding的类，通过Pytorch以及math自带的数学公式实现旋转位置编码，在`forward`部分在通过根据公式输出结果，最后给出一个随机矩阵进行测试，其中部分cos_pos_encoding和sin_pos_encoding结果存放于
-  [cos_pos_encoding](Dian-24-autumn-recruitment/cos_pos_encoding.xlsx at master · Calm-tech-hub/Dian-24-autumn-recruitment (github.com))
+  4.代码实现：仿照绝对位置编码的格式，先定义一个RotaryPosEncoding的类，通过Pytorch以及math自带的数学公式实现旋转位置编码，在`forward`部分在通过根据公式输出结果，最后给出一个随机矩阵进行测试，其中部分`cos_pos_encoding`和`sin_pos_encoding`结果存放于
+  [cos_pos_encoding](https://github.com/Calm-tech-hub/Dian-24-autumn-recruitment/blob/master/cos_pos_encoding.xlsx)
+  以及[sin_pos_encoding](https://github.com/Calm-tech-hub/Dian-24-autumn-recruitment/blob/master/sin_pos_encoding.xlsx)中
+
+##2.3第三题的实现
+-通过学习对`Multi-Head Attention`的理解：
+
+<img width="600" alt="bfb105aef4e78248a3027fb436c3936" src="https://github.com/user-attachments/assets/8106e001-8e83-4949-b3b5-4fe3ac22e504">
+
+这个注意力机制是transformer架构中的核心部分，其主要工作机制是帮助模型在处理输入时，能够动态地集中关注输入序列中最重要的部分。它允许模型根据上下文信息自动调整权重，优先处理对当前任务最相关的信息，而忽略不相关或次要的部分，而多头的作用是可以从不同的角度、不同的子空间来捕捉输入序列中的特征。每个头关注的内容可能不同，这有助于模型捕获输入数据中更多样化的信息。
+
+上图中的左图主要通过缩放点积注意力模型对Q矩阵以及K矩阵进行处理，得出他们之间的注意力权重系数矩阵，详细步骤为：
+
+1.将Q矩阵乘上K矩阵的转置，这一步得到初步的注意力权重关系矩阵
+
+2.将这个矩阵除以根号下dk,以此来进行缩放
+
+3.用softmax函数上述结果进行归一化处理
+
+4.将上述得到结果乘上V矩阵得到最终结果
+
+上图中的右图描述的多头注意力机制的全部实现过程，详细步骤为：
+
+
+
+
+  
 
 
 
