@@ -119,6 +119,7 @@
   这样就与题目所提供的公式形式基本保持一致了，至此旋转编码的公式推导已经基本完成。
 
   4.代码实现：仿照绝对位置编码的格式，先定义一个RotaryPosEncoding的类，通过Pytorch以及math自带的数学公式实现旋转位置编码，在`forward`部分在通过根据公式输出结果，最后给出一个随机矩阵进行测试，其中部分cos_pos_encoding和sin_pos_encoding结果存放于
+  [cos_pos_encoding](Dian-24-autumn-recruitment/cos_pos_encoding.xlsx at master · Calm-tech-hub/Dian-24-autumn-recruitment (github.com))
 
 
 
