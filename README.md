@@ -85,7 +85,7 @@
 
    同时，根据计算得出的梯度结果可以看出，梯度随时间`t`呈指数变化，这样就容易出现梯度消失或者梯度爆炸的问题，解决方案在上文提及，这里不再赘述。
 
-- 通过代码对`RNN`网络进行实现（详情见）
+- 通过代码对`RNN`网络进行实现（详情见[第一题](https://github.com/Calm-tech-hub/Dian-24-autumn-recruitment/blob/master/dian%E7%A7%8B%E6%8B%9B%E7%AC%AC%E4%B8%80%E9%A2%98.ipynb)）
 
   1.定义
 
