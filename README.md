@@ -169,7 +169,10 @@
 
   3.初始化一个`Q、K、V`矩阵，运用自注意力机制，即`Q、K、V`三者相同，并进行测试
 
-  4.运用`plt`中的热力图对注意力权重系数矩阵进行可视化
+  4.运用`plt`中的热力图对注意力权重系数矩阵进行可视化，如下图所示：
+
+  <img width="603" alt="6f8ce5ec1abb1901f1da1071243dbbc" src="https://github.com/user-attachments/assets/d1413bb8-af82-424e-8ce9-fa3d22c8aaf6">
+
 
 
 ##  2.4第四题的初步学习
@@ -197,22 +200,7 @@
 
   
 
-代码
-`print(hello)`
 
-大段代码上色
-```javascript
-class RNN(nn.Module):
-    def init(self,input_size)
-```
-分点
-- a
-- b
-- c
-
-网址
-**[仓库](https://github.com/Calm-tech-hub/Dian-24-autumn-recruitment/new/master?filename=README.md)**
-![注意力权重系数矩阵](https://github.com/user-attachments/assets/d420a2cb-de88-4e5b-9adf-1c05b6d21da6)
 
 
 
