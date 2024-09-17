@@ -161,9 +161,18 @@
 
   5.将结果通过一个`Linear`层进行输出
 
-- 代码实现部分：（详情见[dian秋招第三题。ipynb]()）
+- 代码实现部分：（详情见[dian秋招第三题.ipynb](https://github.com/Calm-tech-hub/Dian-24-autumn-recruitment/blob/master/dain%E7%A7%8B%E6%8B%9B%E7%AC%AC%E4%B8%89%E9%A2%98.ipynb)）
 
-  1.
+  1.根据定义，定义一个`MultiHeadAttention`的类
+
+  2.用Xavier方法初始化权重
+
+  3.初始化一个`Q、K、V`矩阵，运用自注意力机制，即`Q、K、V`三者相同，并进行测试
+
+  4.运用`plt`中的热力图对注意力权重系数矩阵进行可视化
+
+
+##  2.4第四题的初步学习
 
 
 
