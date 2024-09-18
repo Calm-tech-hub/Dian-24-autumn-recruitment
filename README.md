@@ -176,7 +176,48 @@
 
 
 ##  2.4第四题的初步学习
+- 首先建立对`DDPM`模型的初步理解：
+  
+  `DDPM`主要分为两大过程:
+  
+  1.前向传播过程：向原始提供的数据集的图片中不断添加服从高斯分布的噪音
 
+  2.反向传播过程：通过预测该时间步的噪音，进而一步步反推，复原图片
+
+- 对论文的初印象：
+
+  该论文主要介绍了`DDPM`的工作机制，其大篇幅被图片占据，除此之外，便是大片的数学公式推导，故而明天的任务是复现论文中的数学公式推导
+
+
+# Day4
+
+-今天是满课的一天 时间不多 只有晚上的部分时间
+
+利用课余时间初步完成了数学公式的复现，如下图所示：
+
+<img width="495" alt="d71113494d02074f57d7c75ed41cd00" src="https://github.com/user-attachments/assets/383bddec-e193-4086-a3fc-df92e94c6b9a">
+
+<img width="464" alt="7eb0d7b8e08c556b622d43fd16589eb" src="https://github.com/user-attachments/assets/069d8e2e-8872-40d4-b44c-d4188a89569f">
+
+<img width="443" alt="84432fe08449db464df59cc99c3b223" src="https://github.com/user-attachments/assets/d3ba82cd-0eda-48d6-9275-13cd13d64e76">
+
+<img width="491" alt="4f483f7aa2b6b5cfc6a88c9b3af03eb" src="https://github.com/user-attachments/assets/e3f8c2f6-40aa-41e8-80ce-509a02722feb">
+
+对于数学推导的过程，整体的宏观目标是确定损失函数：MSE，在推导的过程中利用了放缩得到变分下界，KL散度，贝叶斯公式，对数相关计算等等，最终将损失函数简化为三项
+
+其中第一项没有可学习参数，可以忽略。
+
+第二项通过变换最终得到关于`epslion`的MSE，并且前面还有一个系数，论文研究发现，忽略系数效果更佳，于是选择忽略前面的常数系数。
+
+最后第三项通过在t=1的时间步，不添加噪声，也去掉了。在一步步推导之后，得到一个关于噪音的`MSE`,作为最终的损失函数
+
+
+
+
+
+
+
+  
 
 
 
