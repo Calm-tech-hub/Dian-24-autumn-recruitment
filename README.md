@@ -228,6 +228,35 @@
 
   开始具体实现：(具体代码详见[Dian秋招附加题.ipynb]())
 
+  实现过程中遇到的困难：
+
+  1.第一次用`minist`数据集进行实验，发现效果很差，如下图所示：
+
+  <img width="648" alt="b627675ecf0830c9f6e4367f220d00b" src="https://github.com/user-attachments/assets/f78836d0-7a3e-4320-a8d4-4c800fd74721">
+
+  于是开始反思代码，将问题锁定到优化器上，通过查阅资料，决定将`optim.SGD`换成`optim.Adam`，再次进行训练，训练前与训练后的对比图如下：
+
+  <img width="595" alt="e3390c41bca8c950c00e9e193579896" src="https://github.com/user-attachments/assets/65c3ff58-7926-4d13-901f-5feba9784b8f">
+
+  <img width="599" alt="ede76c43d981e7ad3d9d311fd29ee72" src="https://github.com/user-attachments/assets/92ed20b0-a51b-4aba-8624-fe0df3ed6926">
+
+  比之前效果好点，但还不是很明显
+
+  下面对`fashion_minist`数据集进行训练，最终得到的训练结果如下图所示（训练时间明显比`minist`数据集长，训练过程更加复杂）：
+
+  <img width="597" alt="dbd3e24523607cd5c6549f927ebd451" src="https://github.com/user-attachments/assets/47c4877c-76b2-40c0-8ab0-b9cb003eba9c">
+
+  <img width="595" alt="89d538afe45823c97f9e05d529b5925" src="https://github.com/user-attachments/assets/284eba8d-530f-4dd8-bff4-54baaa03e9f9">
+
+  在训练44次之后，效果较为明显，比上面的效果好一点
+
+
+
+  
+
+  
+
+
    
 
    
