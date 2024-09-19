@@ -242,13 +242,15 @@
 
   比之前效果好点，但还不是很明显
 
-  下面对`fashion_minist`数据集进行训练，最终得到的训练结果如下图所示（训练时间明显比`minist`数据集长，训练过程更加复杂）：
+  2.下面对`fashion_minist`数据集进行训练，最终得到的训练结果如下图所示（训练时间明显比`minist`数据集长，训练过程更加复杂）：
 
   <img width="597" alt="dbd3e24523607cd5c6549f927ebd451" src="https://github.com/user-attachments/assets/47c4877c-76b2-40c0-8ab0-b9cb003eba9c">
 
   <img width="595" alt="89d538afe45823c97f9e05d529b5925" src="https://github.com/user-attachments/assets/284eba8d-530f-4dd8-bff4-54baaa03e9f9">
 
   在训练44次之后，效果较为明显，比上面的效果好一点
+
+  3.开始反思如何优化图像复原效果：
 
 
 
