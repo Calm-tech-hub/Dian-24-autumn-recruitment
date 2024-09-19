@@ -226,7 +226,7 @@
 
   5.训练过程可视化：将去噪的图像，在一整轮的时间步的迭代过程后展示出来。
 
-  开始具体实现：(具体代码详见[Dian秋招附加题.ipynb]())
+  开始具体实现：(具体代码详见[Dian秋招附加题.ipynb](https://github.com/Calm-tech-hub/Dian-24-autumn-recruitment/blob/master/dain%E7%A7%8B%E6%8B%9B%E9%99%84%E5%8A%A0%E9%A2%98.ipynb))
 
   实现过程中遇到的困难：
 
