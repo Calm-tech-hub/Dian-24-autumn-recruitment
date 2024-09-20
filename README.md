@@ -285,9 +285,9 @@
 
   再对`Minist`数据集进行训练，结果如下：
 
-  ![DDPM_Unet](https://github.com/user-attachments/assets/b8843704-62de-4d33-8820-a70ca9352fc5)
+  ![DDPM4](https://github.com/user-attachments/assets/2c3f44d9-8963-4435-b44e-6ddf3f1f91625)
 
-  也还行，比之前好
+  也还行，比之前好,基本可以辨认出来是什么数字了
 
 # Day 7
 
