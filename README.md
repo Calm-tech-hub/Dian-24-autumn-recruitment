@@ -281,6 +281,14 @@
 
   ![DDPM2](https://github.com/user-attachments/assets/7caa9085-5cb4-42b2-804f-402ceaf09cb6)
 
+  效果有所改善
+
+  再对`Minist`数据集进行训练，结果如下：
+
+  ![DDPM_Unet](https://github.com/user-attachments/assets/b8843704-62de-4d33-8820-a70ca9352fc5)
+
+  也还行，比之前好
+
 
 
 
